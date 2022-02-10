@@ -9,8 +9,6 @@
 import binpacking
 import numpy as np
 
-#database of past points
-
 levels = np.genfromtxt('points.txt', dtype = 'float')
 players = np.genfromtxt('players.txt', dtype = 'str')
 playerLevels = zip(players, levels)
