@@ -5,9 +5,11 @@
 
 #Export team pictures to folders for easier image creation
 #https://note.nkmk.me/en/python-pillow-paste/
+from typing import List
 
 import binpacking
 import numpy as np
+import math
 
 levels = np.genfromtxt('points.txt', dtype = 'float')
 players = np.genfromtxt('players.txt', dtype = 'str')
@@ -35,15 +37,15 @@ team2 = list(zip(*b))
 team3 = list(zip(*c))
 team4 = list(zip(*d))
 
-points1 = sum(team1[1])/4
-points2 = sum(team2[1])/4
-points3 = sum(team3[1])/4
-points4 = sum(team4[1])/4
+points1 = round(sum(team1[1])/4, 2)
+points2 = round(sum(team2[1])/4, 2)
+points3 = round(sum(team3[1])/4, 2)
+points4 = round(sum(team4[1])/4, 2)
 
-stdev1 = np.std(team1[1])
-stdev2 = np.std(team2[1])
-stdev3 = np.std(team3[1])
-stdev4 = np.std(team4[1])
+stdev1 = math.trunc(np.std(team1[1]))
+stdev2 = math.trunc(np.std(team2[1]))
+stdev3 = math.trunc(np.std(team3[1]))
+stdev4 = math.trunc(np.std(team4[1]))
 
 print('Team 1 is', team1[0])
 print('Team 2 is', team2[0])
