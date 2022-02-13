@@ -1,15 +1,12 @@
 #To Do List:
-#make .exe file
-#integrate google docs
 #autogenerate team pictures (discord api), Pillow (PIL) library
-
 #Export team pictures to folders for easier image creation
 #https://note.nkmk.me/en/python-pillow-paste/
-from typing import List
 
 import binpacking
 import numpy as np
-import math
+
+numberOfTeams = 4
 
 levels = np.genfromtxt('points.txt', dtype = 'float')
 players = np.genfromtxt('players.txt', dtype = 'str')
@@ -17,42 +14,44 @@ playerLevels = zip(players, levels)
 playerLevelsList = list(playerLevels)
 
 averageLevels = sum(levels)/len(levels)
-print('Average points are', averageLevels)
 
-bins = binpacking.to_constant_bin_number(playerLevelsList, 4, 1)
+print('Generating', numberOfTeams, 'teams with a player count of', len(players)/numberOfTeams, 'and an average of', round(averageLevels, 2), 'points each...')
 
-a, b, c, d = [ [individualArray] for individualArray in bins]
+bins = binpacking.to_constant_bin_number(playerLevelsList, numberOfTeams, 1)
 
+a, b, c, d = [[individualArray] for individualArray in bins]
+
+# reads players into an array
 a = a[0]
 b = b[0]
 c = c[0]
 d = d[0]
-a1 = a[1]
-b1 = b[1]
-c1 = c[1]
-d1 = d[1]
 
+# converts the arrays to lists
 team1 = list(zip(*a))
 team2 = list(zip(*b))
 team3 = list(zip(*c))
 team4 = list(zip(*d))
 
+# calculates each team's average points
 points1 = round(sum(team1[1])/4, 2)
 points2 = round(sum(team2[1])/4, 2)
 points3 = round(sum(team3[1])/4, 2)
 points4 = round(sum(team4[1])/4, 2)
 
-stdev1 = math.trunc(np.std(team1[1]))
-stdev2 = math.trunc(np.std(team2[1]))
-stdev3 = math.trunc(np.std(team3[1]))
-stdev4 = math.trunc(np.std(team4[1]))
+# calculates the standard deviation of each team
+stDev1 = round(np.std(team1[1]), 2)
+stDev2 = round(np.std(team2[1]), 2)
+stDev3 = round(np.std(team3[1]), 2)
+stDev4 = round(np.std(team4[1]), 2)
 
+# prints results
 print('Team 1 is', team1[0])
 print('Team 2 is', team2[0])
 print('Team 3 is', team3[0])
 print('Team 4 is', team4[0])
 print('\n-----Stats-----')
-print('Team 1 Average is', points1, 'with a standard deviation of', stdev1)
-print('Team 2 Average is', points2, 'with a standard deviation of', stdev2)
-print('Team 3 Average is', points3, 'with a standard deviation of', stdev3)
-print('Team 4 Average is', points4, 'with a standard deviation of', stdev4)
+print('Team 1 Average is', points1, 'with a standard deviation of', stDev1)
+print('Team 2 Average is', points2, 'with a standard deviation of', stDev2)
+print('Team 3 Average is', points3, 'with a standard deviation of', stDev3)
+print('Team 4 Average is', points4, 'with a standard deviation of', stDev4)
