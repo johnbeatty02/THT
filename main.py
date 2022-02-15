@@ -5,6 +5,7 @@
 
 import binpacking
 import numpy as np
+import matplotlib as plt
 
 numberOfTeams = 4
 
@@ -55,3 +56,8 @@ print('Team 1 Average is', points1, 'with a standard deviation of', stDev1)
 print('Team 2 Average is', points2, 'with a standard deviation of', stDev2)
 print('Team 3 Average is', points3, 'with a standard deviation of', stDev3)
 print('Team 4 Average is', points4, 'with a standard deviation of', stDev4)
+
+#graphs!
+labels = ['Team 1', 'Team 2', 'Team 3', 'Team 4']
+print(team1[1])
+
