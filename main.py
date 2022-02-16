@@ -6,6 +6,7 @@
 import binpacking
 import numpy as np
 import matplotlib.pyplot as plt
+from skins import *
 
 numberOfTeams = 4
 
@@ -63,7 +64,7 @@ print('Team 2 Average is', points2, 'with a standard deviation of', stDev2)
 print('Team 3 Average is', points3, 'with a standard deviation of', stDev3)
 print('Team 4 Average is', points4, 'with a standard deviation of', stDev4)
 
-#graphs!
+# graphs!
 labels = ['Team 1', 'Team 2', 'Team 3', 'Team 4']
 fig, ax =plt.subplots()
 ax.set_title('Points by Team')
@@ -74,5 +75,6 @@ ax.set_ylabel('Points')
 for i in range(data.shape[1]):
     bottom=np.sum(data[:,0:i], axis=1)
     ax.bar(labels,data[:,i], bottom=bottom, label="Team {}".format(i+1))
-
 plt.show()
+
+getSkins() #from skins.py, obtains skin images and routes to /Users/johnbeatty/PycharmProjects/teams/heads
