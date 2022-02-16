@@ -1,12 +1,14 @@
 #To Do List:
-#autogenerate team pictures (discord api), Pillow (PIL) library
-#Export team pictures to folders for easier image creation
-#https://note.nkmk.me/en/python-pillow-paste/
+# Integrate Discord API
+# Find better sorting algorithm / read through stackoverflow suggestions
+# take data from csv instead of txt
+
+# Started the automation of team graphics. Not sure if it's worth it.
 
 import binpacking
 import numpy as np
 import matplotlib.pyplot as plt
-from skins import *
+from skins import getSkins
 
 numberOfTeams = 4
 
@@ -77,4 +79,4 @@ for i in range(data.shape[1]):
     ax.bar(labels,data[:,i], bottom=bottom, label="Team {}".format(i+1))
 plt.show()
 
-getSkins() #from skins.py, obtains skin images and routes to /Users/johnbeatty/PycharmProjects/teams/heads
+getSkins() # from skins.py, obtains skin images and routes to /Users/johnbeatty/PycharmProjects/teams/heads

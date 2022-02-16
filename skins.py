@@ -4,6 +4,8 @@ def getSkins():
     import requests
     import shutil
 
+    print('\nLoading Skins. . .')
+
     players = np.genfromtxt('players.txt', dtype='str', comments='#')
 
     for name in players:
