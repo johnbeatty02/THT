@@ -1,19 +1,35 @@
 #To Do List:
-# Integrate Discord API
+# Integrate Discord API:
+#    create bot
+#    automatically read names from "me" channel
 # Find better sorting algorithm / read through stackoverflow suggestions
-# take data from csv instead of txt
-
-# Started the automation of team graphics. Not sure if it's worth it.
+# balance off other gamemodes
+# other gamemodes not importing! find error!!
 
 import binpacking
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from skins import getSkins
 
 numberOfTeams = 4
 
-levels = np.genfromtxt('points.txt', dtype = 'float')
-players = np.genfromtxt('players.txt', dtype = 'str')
+# CHANGE THIS TO txt OR csv
+extension = 'csv'
+name = 'points'
+filename = name + '.' + extension
+
+if extension == 'txt':
+    levels = np.genfromtxt('points.txt', dtype='float')
+    players = np.genfromtxt('players.txt', dtype='str')
+elif extension == 'csv':
+    df = pd.read_csv(filename)
+    df.columns = ['Players', 'Points']
+    players = list(df.Players)
+    levels = list(df.Points)
+else:
+    raise ValueError('Invalid extension, options are \'csv\' or \'txt\'.')
+
 playerLevels = zip(players, levels)
 playerLevelsList = list(playerLevels)
 
@@ -79,4 +95,4 @@ for i in range(data.shape[1]):
     ax.bar(labels,data[:,i], bottom=bottom, label="Team {}".format(i+1))
 plt.show()
 
-getSkins() # from skins.py, obtains skin images and routes to /Users/johnbeatty/PycharmProjects/teams/heads
+#getSkins() # from skins.py, obtains skin images and routes to /Users/johnbeatty/PycharmProjects/teams/heads
