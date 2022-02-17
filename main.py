@@ -16,7 +16,7 @@ numberOfTeams = 4
 
 # CHANGE THIS TO txt OR csv
 extension = 'csv'
-name = 'points'
+name = 'bedwars'
 filename = name + '.' + extension
 
 if extension == 'txt':
@@ -86,7 +86,7 @@ print('Team 4 Average is', points4, 'with a standard deviation of', stDev4)
 labels = ['Team 1', 'Team 2', 'Team 3', 'Team 4']
 fig, ax =plt.subplots()
 ax.set_title('Points by Team')
-data = np.array(allPoints)
+data = np.array(allPoints, dtype = 'object')
 x = np.arange(data.shape[0])
 ax.set_ylabel('Points')
 
