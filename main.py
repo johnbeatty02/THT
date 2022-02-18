@@ -5,6 +5,7 @@
 # Find better sorting algorithm / read through stackoverflow suggestions
 # balance off other gamemodes
 # other gamemodes not importing! find error!!
+# put all teams in one exported image with head and name labels
 
 import binpacking
 import numpy as np
@@ -29,6 +30,9 @@ elif extension == 'csv':
     levels = list(df.Points)
 else:
     raise ValueError('Invalid extension, options are \'csv\' or \'txt\'.')
+
+if name == 'pvp':
+    pass
 
 playerLevels = zip(players, levels)
 playerLevelsList = list(playerLevels)
