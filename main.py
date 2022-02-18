@@ -1,11 +1,14 @@
 #To Do List:
-# Integrate Discord API:
+# Integrate Discord API: (separate project)
 #    fix bot offline issue, find way to upload code to it
 #    automatically read names from "me" channel
-# Find better sorting algorithm / read through stackoverflow suggestions
-# put all teams in one exported image with head and name labels
-# Amend to include only players who are playing in a specific week
-# Do something with the Player, Points header -- get rid of it or add it to sheets integration
+# !!! (2) Find better sorting algorithm / read through stackoverflow suggestions
+# !!! (1) Amend to include only players who are playing in a specific week
+# Make pretty team graphics, see sticky note for drawing
+
+# !!!Readme info:
+# allSheets.py needs to be run after data is updated
+# info about updating file name and extension
 
 import binpacking
 import numpy as np
@@ -17,7 +20,7 @@ numberOfTeams = 4
 
 # CHANGE THIS TO txt OR csv
 extension = 'csv'
-name = 'wobtafitv'
+name = 'overall'
 filename = name + '.' + extension
 
 if extension == 'txt':
@@ -87,7 +90,7 @@ print('Team 3 Average is', points3, 'with a standard deviation of', stDev3)
 print('Team 4 Average is', points4, 'with a standard deviation of', stDev4)
 
 # graphs!
-labels = ['Team 1', 'Team 2', 'Team 3', 'Team 4']
+labels = ['Team 1\n' + str(points1), 'Team 2\n' + str(points2), 'Team 3\n' + str(points3), 'Team 4\n' + str(points4)]
 fig, ax =plt.subplots()
 ax.set_title('Points by Team')
 data = np.array(allPoints, dtype = 'object')
