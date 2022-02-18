@@ -1,6 +1,6 @@
 #To Do List:
 # Integrate Discord API:
-#    create bot
+#    fix bot offline issue, find way to upload code to it
 #    automatically read names from "me" channel
 # Find better sorting algorithm / read through stackoverflow suggestions
 # put all teams in one exported image with head and name labels
@@ -30,7 +30,7 @@ elif extension == 'csv':
     levels = list(df.Points)
 else:
     raise ValueError('Invalid extension, options are \'csv\' or \'txt\'.')
-
+print(levels)
 if name == 'pvp':
     pass
 
@@ -93,6 +93,7 @@ ax.set_title('Points by Team')
 data = np.array(allPoints, dtype = 'object')
 x = np.arange(data.shape[0])
 ax.set_ylabel('Points')
+plt.title(name)
 
 for i in range(data.shape[1]):
     bottom=np.sum(data[:,0:i], axis=1)

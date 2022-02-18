@@ -58,6 +58,7 @@ def bedwars():
     import csv
     f = open('bedwars.csv', 'w')
     writer = csv.writer(f)
+    writer.writerow(('Player', 'Points'))
     for row in values:
         writer.writerow((row[0], row[1]))
     f.close()
@@ -109,6 +110,7 @@ def skywars():
     import csv
     f = open('skywars.csv', 'w')
     writer = csv.writer(f)
+    writer.writerow(('Player', 'Points'))
     for row in values:
         writer.writerow((row[0], row[1]))
     f.close()
@@ -160,6 +162,7 @@ def buildBattle():
     import csv
     f = open('buildBattle.csv', 'w')
     writer = csv.writer(f)
+    writer.writerow(('Player', 'Points'))
     for row in values:
         writer.writerow((row[0], row[1]))
     f.close()
@@ -211,6 +214,7 @@ def bridgeDuels():
     import csv
     f = open('bridgeDuels.csv', 'w')
     writer = csv.writer(f)
+    writer.writerow(('Player', 'Points'))
     for row in values:
         writer.writerow((row[0], row[1]))
     f.close()
@@ -262,6 +266,7 @@ def miniWalls():
     import csv
     f = open('miniWalls.csv', 'w')
     writer = csv.writer(f)
+    writer.writerow(('Player', 'Points'))
     for row in values:
         writer.writerow((row[0], row[1]))
     f.close()
@@ -313,6 +318,7 @@ def parkourDuels():
     import csv
     f = open('parkourDuels.csv', 'w')
     writer = csv.writer(f)
+    writer.writerow(('Player', 'Points'))
     for row in values:
         writer.writerow((row[0], row[1]))
     f.close()
@@ -364,6 +370,7 @@ def partyGames():
     import csv
     f = open('partyGames.csv', 'w')
     writer = csv.writer(f)
+    writer.writerow(('Player', 'Points'))
     for row in values:
         writer.writerow((row[0], row[1]))
     f.close()
@@ -415,6 +422,7 @@ def survivalGames():
     import csv
     f = open('survivalGames.csv', 'w')
     writer = csv.writer(f)
+    writer.writerow(('Player', 'Points'))
     for row in values:
         writer.writerow((row[0], row[1]))
     f.close()
@@ -466,6 +474,7 @@ def wobtafitv():
     import csv
     f = open('wobtafitv.csv', 'w')
     writer = csv.writer(f)
+    writer.writerow(('Player', 'Points'))
     for row in values:
         writer.writerow((row[0], row[1]))
     f.close()
@@ -517,8 +526,21 @@ def uhcDuels():
     import csv
     f = open('uhcDuels.csv', 'w')
     writer = csv.writer(f)
+    writer.writerow(('Player', 'Points'))
     for row in values:
         writer.writerow((row[0], row[1]))
     f.close()
 print('Updated UHC Duels stats')
 print('\nAll updates completed.')
+
+# RUNS ALL FUNCTIONS
+bedwars()
+skywars()
+buildBattle()
+bridgeDuels()
+miniWalls()
+parkourDuels()
+partyGames()
+survivalGames()
+wobtafitv()
+uhcDuels()
