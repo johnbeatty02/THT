@@ -3,10 +3,8 @@
 #    create bot
 #    automatically read names from "me" channel
 # Find better sorting algorithm / read through stackoverflow suggestions
-# balance off other gamemodes
-# other gamemodes not importing! find error!!
 # put all teams in one exported image with head and name labels
-# Amend sheets.py to include only players who are playing in a specific week
+# Amend to include only players who are playing in a specific week
 # Do something with the Player, Points header -- get rid of it or add it to sheets integration
 
 import binpacking
@@ -19,7 +17,7 @@ numberOfTeams = 4
 
 # CHANGE THIS TO txt OR csv
 extension = 'csv'
-name = 'skywars'
+name = 'wobtafitv'
 filename = name + '.' + extension
 
 if extension == 'txt':
